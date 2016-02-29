@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 #define N 5
-int main()
+int m()
 {
     int a[N];
     int i;
