@@ -1,48 +1,19 @@
-//
-//  main.cpp
-//  von
-//
-//  Created by 蔡仲谋 on 2/27/16.
-//  Copyright © 2016 蔡仲谋. All rights reserved.
-//
 #include <iostream>
+#include <iomanip>
+using namespace std;
+#define N 12
 int main()
 {
-    using namespace std;
-    int max(int a,int b);
-    int loop;
-    cin>>loop;
-    int j;
-    int num;
-    int m[num];
-    int count[loop];
+    float balance[12];
     int i;
-    for(i=0;i<loop;i++)
+    float total=0.00;
+    for(i=0;i<N;i++)
     {
-        count[i]=0;
-        cin>>num;
-        for(j=0;j<num;j++)
-        {
-            cin>>m[j];
-        }
-        for(int s=0;s<num;s++)
-        {
-            int k=0;
-            for(k=s+1;k<num;k++)
-                if((m[s]^m[k])>max(m[s],m[k]))
-                    count[i]++;
-        }
+        cin>>setprecision(2)>>balance[i];
     }
-    for(i=0;i<loop;i++)
+    for(i=0;i<N;i++)
     {
-        cout<<count[i]<<endl;
+        total+=balance[i];
     }
-    return 0;
-}
-int max(int a,int b)
-{
-    if (a>b)
-        return a;
-    else
-        return b;
+    cout<<setprecision(2)<<fixed<<"$"<<total/N<<endl;//fixed 和setprecision的用法
 }
