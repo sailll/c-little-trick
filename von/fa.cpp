@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 #define N 5
+int main()
 {
        int i,j;
        for(i=0;i<N;i++)
