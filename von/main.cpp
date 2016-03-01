@@ -3,29 +3,26 @@ using namespace std;
 #define N 5
 int main()
 {
-    int a[N];
-    int i;
+    int i,j,a[N];
     for(i=0;i<N;i++)
     {
-        cout<<"the "<<i+1<<"th of the array is ?"<<endl;
         cin>>a[i];
     }
-    int j;
-    int key;
-    for(j=1;j<N;j++)
+    for(i=0;i<N;i++)
     {
-        key=a[j];
-        i=j-1;
-        while(i>=0&&a[i]>key)
+        for(j=0;j<N-i-1;j++)
         {
-            a[i+1]=a[i];
-            i--;
-            a[i+1]=key;
+            if(a[j]>a[j+1])
+            {
+                a[j]=a[j]^a[j+1];
+                a[j+1]=a[j+1]^a[j];
+                a[j]=a[j]^a[j+1];
+            }
         }
     }
     for(i=0;i<N;i++)
     {
-        cout<<a[i]<<endl;
+        cout<<a[i];
     }
     return 0;
 }
