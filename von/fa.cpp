@@ -3,7 +3,7 @@ using namespace std;
 #define N 5
 int main()
 {
-       int i,j;
+       int i,j,a[N];
        for(i=0;i<N;i++)
        {
            cin>>a[i];
