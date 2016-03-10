@@ -3,26 +3,37 @@ using namespace std;
 #define N 5
 int main()
 {
-    int i,j,a[N];
-    for(i=0;i<N;i++)
+    void input(int *pointer);
+    int max(int *pointer);
+    int *pointer;
+    pointer=(int *)malloc(N * sizeof(int));
+    if(pointer==NULL)
     {
-        cin>>a[i];
+        cerr<<"the pointer is null"<<endl;
     }
-    for(i=0;i<N;i++)
-    {
-        for(j=0;j<N-i-1;j++)
-        {
-            if(a[j]>a[j+1])
-            {
-                a[j]=a[j]^a[j+1];
-                a[j+1]=a[j+1]^a[j];
-                a[j]=a[j]^a[j+1];
-            }
-        }
-    }
-    for(i=0;i<N;i++)
-    {
-        cout<<a[i];
-    }
+    input(pointer);
+    cout<<max(pointer)<<" is the biggest number"<<endl;
+    free(pointer);
     return 0;
 }
+void input(int *pointer)
+{
+    for(int i=0;i<N;i++)
+    {
+        cin>>*(pointer+i);
+    }
+}
+int max(int *pointer)
+{
+    for(int i=0;i<N;i++)
+    {
+        if(*(pointer+i)>*(pointer+i+1))
+        {
+            *(pointer+i)=*(pointer+i)^*(pointer+i+1);
+            *(pointer+i+1)=*(pointer+i+1)^*(pointer+i);
+            *(pointer+i)=*(pointer+i)^*(pointer+i+1);
+        }
+    }
+    return *(pointer+N-1);
+}
+
