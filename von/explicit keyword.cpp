@@ -8,7 +8,7 @@ public:
     B(int i=23){
         this->x=i;
     }
-    //using explicit keyword will disable the imexplicit conversion mechanism
+    //using explicit keyword will disable the inexplicit conversion mechanism
 };
 void output(B ob){
     cout<<ob.x<<endl;
